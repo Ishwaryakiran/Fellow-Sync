@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Resources</title>
+    <style>
+        /* Import Inter Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6efff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid cornflowerblue;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Heading */
+        h1, h2 {
+            text-align: center;
+            color: cornflowerblue;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 0.3s forwards;
+        }
+
+        p {
+            text-align: center;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 0.5s forwards;
+        }
+
+        /* Resources Section */
+        .resources {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            border-left: 5px solid cornflowerblue;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-in-out 0.6s forwards;
+        }
+
+        .resource-item {
+            background: white;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-item a {
+            text-decoration: none;
+            color: cornflowerblue;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .download-btn {
+            background: cornflowerblue;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .download-btn:hover {
+            background: #4169e1;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background: #5a79c7;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-in-out 0.9s forwards;
+        }
+
+        .back-btn:hover {
+            background: #355a9a;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .resource-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .download-btn {
+                margin-top: 10px;
+            }
+
+            .back-btn {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Course Resources</h1>
+        <p>Download study materials and helpful resources for the course.</p>
+
+        <h2>Resources</h2>
+        <div class="resources">
+            <div class="resource-item">
+                <a href="resource1.pdf" download>Basic English Grammar Guide</a>
+                <button class="download-btn">Download</button>
+            </div>
+
+            <div class="resource-item">
+                <a href="resource2.pdf" download>Speaking & Pronunciation Workbook</a>
+                <button class="download-btn">Download</button>
+            </div>
+
+            <div class="resource-item">
+                <a href="resource3.pdf" download>Listening Comprehension Exercises</a>
+                <button class="download-btn">Download</button>
+            </div>
+
+            <div class="resource-item">
+                <a href="resource4.pdf" download>Advanced Writing Techniques</a>
+                <button class="download-btn">Download</button>
+            </div>
+        </div>
+
+        <div class="back-btn" onclick="goBack()">Back to Course</div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html";  // Change to the actual course page
+        }
+    </script>
+
+</body>
+</html>

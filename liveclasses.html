@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Classes</title>
+    <style>
+        /* Import Inter Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6efff;
+            color: #333;
+            overflow-x: hidden;
+            background-image: url(Background.jpg);
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid cornflowerblue;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Heading */
+        h1, h2 {
+            text-align: center;
+            color: cornflowerblue;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 0.3s forwards;
+        }
+
+        p {
+            text-align: center;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 0.5s forwards;
+        }
+
+        /* Live Classes Section */
+        .live-classes {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            border-left: 5px solid cornflowerblue;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-in-out 0.6s forwards;
+        }
+
+        .class-item {
+            background: white;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .class-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .class-info {
+            flex-grow: 1;
+        }
+
+        .join-btn {
+            background: cornflowerblue;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .join-btn:hover {
+            background: #4169e1;
+        }
+
+        /* Add Class Form */
+        .add-class-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            border-left: 5px solid cornflowerblue;
+        }
+
+        .add-class-form input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .add-btn {
+            background: #4c8bf5;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .add-btn:hover {
+            background: #2b6adf;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background: #5a79c7;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-in-out 0.9s forwards;
+        }
+
+        .back-btn:hover {
+            background: #355a9a;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .class-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .join-btn {
+                margin-top: 10px;
+            }
+
+            .back-btn {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Live Classes</h1>
+        <p>Join live sessions and interact with expert instructors in real time.</p>
+
+        <h2>Upcoming Live Classes</h2>
+        <div class="live-classes" id="class-list">
+            <!-- Classes will be loaded dynamically here -->
+        </div>
+
+        <h2>Add a New Live Class</h2>
+        <div class="add-class-form">
+            <input type="text" id="class-name" placeholder="Enter class name" required>
+            <input type="date" id="class-date" placeholder="Enter date" required>
+            <input type="time" id="class-time"placeholder="Enter time" required>
+            <button class="add-btn" onclick="addClass()">Add Class</button>
+        </div>
+
+        <div class="back-btn" onclick="goBack()">Back to Course</div>
+    </div>
+
+    <script>
+        let classes = [
+            { name: "Grammar Essentials", date: "2025-03-05", time: "10:00" },
+            { name: "Speaking & Pronunciation", date: "2025-03-08", time: "14:00" }
+        ];
+
+        function displayClasses() {
+            const classList = document.getElementById("class-list");
+            classList.innerHTML = "";
+            classes.forEach((cls, index) => {
+                let classItem = `
+                    <div class="class-item">
+                        <div class="class-info">
+                            <strong>${cls.name}</strong><br>
+                            Date: ${cls.date} | Time: ${cls.time}
+                        </div>
+                        <button class="join-btn" onclick="joinClass(${index})">Join Now</button>
+                    </div>
+                `;
+                classList.innerHTML += classItem;
+            });
+        }
+
+        function joinClass(index) {
+            alert(`Joining: ${classes[index].name}`);
+            window.location.href = "https://liveclass.example.com";
+        }
+
+        function addClass() {
+            let name = document.getElementById("class-name").value;
+            let date = document.getElementById("class-date").value;
+            let time = document.getElementById("class-time").value;
+
+            if (name && date && time) {
+                classes.push({ name, date, time });
+                displayClasses();
+                alert("New class added!");
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+
+        displayClasses();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FellowSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ============================= */
+/* General Animations */
+/* ============================= */
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce-in Animation */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Slide-in from Top */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================= */
+/* Applying Animations (Fixed) */
+/* ============================= */
+
+/* Navbar Fade-in */
+.navbar {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Hero Section Fade-in */
+.hero {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Stats Cards Bounce-in */
+.stat-card {
+    animation: bounceIn 0.8s ease-out forwards;
+}
+
+/* Course Cards Bounce-in */
+.course-card {
+    animation: bounceIn 0.8s ease-out forwards;
+}
+
+/* Staggered Delays for Natural Flow */
+.stat-card:nth-child(1) { animation-delay: 0.2s; }
+.stat-card:nth-child(2) { animation-delay: 0.4s; }
+.stat-card:nth-child(3) { animation-delay: 0.6s; }
+
+.course-card:nth-child(1) { animation-delay: 0.2s; }
+.course-card:nth-child(2) { animation-delay: 0.4s; }
+.course-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Mobile Menu Slide-in */
+.mobile-menu {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* ============================= */
+/* Smooth Button Hover Effects */
+/* ============================= */
+.btn {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/* Smooth Scrolling */
+/* ============================= */
+html {
+    scroll-behavior: smooth;
+}
+/* ============================= */
+/* Course Card Hover Effects */
+/* ============================= */
+
+/* Initially Hide Course Content */
+.course-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+/* On Hover, Show the Content */
+.course-card:hover .course-content {
+    opacity: 1;
+    max-height: 200px; /* Adjust to fit content */
+}
+
+/* Add Smooth Scaling & Shadow on Hover */
+.course-card {
+    transition: all 0.35s ease-in-out;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth Button Hover Effects */
+.btn {
+    transition: 0.3s ease-in-out;
+     box-shadow :0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+
+    </style>
+  
+</head>
+<body >
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                    </svg>
+                    <span><img src="logo.png" alt="" style="height: 60px;"></span>
+                </a>
+
+                <div class="desktop-nav">
+                    <a href="#hero" class="nav-link">Home</a>
+                    <a href="#courses" class="nav-link">Courses</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="liveclasses.html" class="nav-link">Live Classes</a>
+                    <a href="" class="nav-link">Profile</a>
+                    <a href="login.html" class="btn btn-outline">Sign In</a>
+                    <a href="singup.html" class="btn btn-primary" style="background-color: cornflowerblue;">Sing Up</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu hidden" id="mobileMenu">
+                <a href="#hero" class="mobile-link">Home</a>
+                <a href="#courses" class="mobile-link">Courses</a>
+                <a href="#resources" class="mobile-link">Resources</a>
+                <a href="#live-classes" class="mobile-link">Live Classes</a>
+                <a href="/login" class="btn btn-outline w-full">Sign In</a>
+                <a href="/signup" class="btn btn-primary w-full">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <span class="badge">Empowering Through Education</span>
+            <h1>Quality Education for <span class="text-primary" >Everyone</span></h1>
+            <p class="hero-text">Breaking barriers to education through innovative technology and personalized learning experiences.</p>
+            <div class="hero-buttons">
+                <a href="#start" class="btn btn-primary">
+                    Start Learning
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#courses" class="btn btn-outline">Browse Courses</a>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-card">
+                    <svg class="h-8 w-8 mx-auto text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="height: 80px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <h3>1000+</h3>
+                    <p>Free Courses</p>
+                </div>
+                <div class="stat-card">
+                    <svg class="h-8 w-8 mx-auto text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="height: 80px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    <h3>50,000+</h3>
+                    <p>Active Learners</p>
+                </div>
+                <div class="stat-card">
+                    <svg class="h-8 w-8 mx-auto text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="height: 80px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h3>100+</h3>
+                    <p>Countries Reached</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+<section id="courses" class="courses">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Courses</h2>
+            <p>Start your learning journey with our most popular courses</p>
+        </div>
+
+        <div class="course-grid">
+            <!-- Course 1: Basic Mathematics -->
+            <div class="course-card">
+                <div class="course-image1"></div>
+                <h3><a href="maths.html" style="text-decoration: none; color: #000;">Basic Mathematics</a></h3>
+                <p> <a href="maths.html" style="text-decoration: none;color:rgb(211, 206, 206);">Master fundamental mathematics concepts</a></p> 
+                <div class="course-footer">
+                    <span>2,543 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course1')">Learn More</a>
+                </div>
+                <div id="course1" class="course-content" style="display: none;">
+                    <p>In this course, you will cover essential topics such as algebra, geometry, and calculus, designed to help you build a strong mathematical foundation.
+                    <ul style="padding-left: 25px; list-style: none; padding-top:7px; padding-bottom: 7px;">
+                        <li>Algebra Basics</li>
+                        <li>Geometry Fundamentals</li>
+                        <li>Calculus Introduction</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Course 2: Introduction to Coding -->
+            <div class="course-card">
+                <div class="course-image2" href="coding.html"></div>
+                <h3><a href="coding.html" style="text-decoration: none;color: black;">Introduction to Coding</a></h3>
+                <p><a href="coding.html" style="text-decoration: none; color:rgb(211, 206, 206);">Learn programming basics with Python</a></p>
+                <div class="course-footer">
+                    <span>1,893 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course2')">Learn More</a>
+                </div>
+                <div id="course2" class="course-content" style="display: none;">
+                    <p>aThis course covers the fundamentals of Python programming, helping you to start writing your own programs from scratch.
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Introduction to Python Syntax</li>
+                        <li>Control Structures</li>
+                        <li>Data Structures in Python</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Course 3: English Language -->
+            <div class="course-card">
+                <div class="course-image3" href="english.html"></div>
+                <h3><a href="english.html" style="text-decoration: none; color: #000;">English Language</a></h3>
+                <p><a href="english.html" style="text-decoration: none; color: rgb(211, 206, 206);">Develop essential English communication skills</a></p>
+                <div class="course-footer">
+                    <span>3,210 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course3')">Learn More</a>
+                </div>
+                <div id="course3" class="course-content" style="display: none;">
+                    <p>This course helps you improve your speaking, writing, and listening skills in English, with a focus on everyday communication.  
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Grammar Essentials</li>
+                        <li>Speaking and Listening Practice</li>
+                        <li>Writing Skills Development</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Function to toggle the visibility of the course content
+    function toggleContent(courseId) {
+        var courseContent = document.getElementById(courseId);
+        if (courseContent.style.display === "none") {
+            courseContent.style.display = "block";
+        } else {
+            courseContent.style.display = "none";
+        }
+    }
+</script>
+
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.mobile-menu') && 
+                !event.target.closest('.mobile-menu-btn')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.stat-card, .course-card');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    element.classList.add('animate-fade-in');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Initial check
+    </script>
+   
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Fellowsync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loginandsingup.css">
+</head>
+<body style="background-color: cornflowerblue;">
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-header">
+                <a href="/" class="logo auth-logo">
+                    <svg class="h-12 w-12 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                    </svg>
+                </a>
+                <h2>Create your account</h2>
+                <p class="auth-subtitle">
+                    Already have an account? <a href="login.html" class="text-primary">Sign in</a>
+                </p>
+            </div>
+            <div class="auth-card">
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required class="form-input">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Create account</button>
+                </form>
+                <div class="social-auth">
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+                    <button class="btn btn-outline w-full social-btn">
+                        <img src="https://www.google.com/favicon.ico" alt="Google" class="h-4 w-4">
+                        Sign up with Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>
