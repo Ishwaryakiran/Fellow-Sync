@@ -3,169 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources-Fsync</title>
+    <title>FellowSync</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
     <style>
-        
-        /* General Styles */
-        body {
-            font-family: 'Inter', sans-serif;
+     
+        * {
             margin: 0;
             padding: 0;
-            background-color: #e6efff;
-            color: #333;
-            overflow-x: hidden;
+            box-sizing: border-box;
+            font-family:'Inter', sans-serif;
         }
 
-        /* Container */
-        .resources-div {
-            max-width: 900px;
-            margin: 50px auto;
+        body {
+            background-color: #f0f7ff;
+            color: #333;
+        }
+
+        .community {
+            max-width: 1000px;
+            margin: 20px auto;
             padding: 20px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(100, 149, 237, 0.5);
             border-top: 5px solid cornflowerblue;
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            animation: fadeIn 1s ease-out forwards;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Heading */
-        h1, h2 {
+        .cmmunity-header {
             text-align: center;
+            font-size: 28px;
+            font-weight: 600;
             color: cornflowerblue;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 0.3s forwards;
+            text-shadow: 0 0 15px cornflowerblue;
+            animation: glow 1.5s infinite alternate;
         }
 
-        p {
-            text-align: center;
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 0.5s forwards;
+        @keyframes glow {
+            from { text-shadow: 0 0 10px cornflowerblue; }
+            to { text-shadow: 0 0 20px cornflowerblue; }
         }
 
-        /* Resources Section */
-        .resources {
+        .post-container {
             margin-top: 20px;
             padding: 15px;
-            background: #f0f7ff;
+            background: rgba(100, 149, 237, 0.1);
             border-radius: 8px;
             border-left: 5px solid cornflowerblue;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-in-out 0.6s forwards;
         }
 
-        .resource-item {
-            background: white;
-            margin: 10px 0;
-            padding: 12px;
-            border-radius: 5px;
+        .post {
+            background: #e3ebff;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(100, 149, 237, 0.3);
+            transition: transform 0.3s;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: transform 0.3s ease-in-out;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            align-items: flex-start;
+            gap: 10px;
         }
 
-        .resource-item:hover {
+        .post:hover {
             transform: scale(1.02);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .resource-item a {
-            text-decoration: none;
-            color: cornflowerblue;
-            font-weight: bold;
-            font-size: 16px;
+        .post img, .post video {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
         }
 
-        .download-btn {
-            background: cornflowerblue;
-            color: white;
-            padding: 8px 15px;
+        .profile-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid cornflowerblue;
+        }
+
+        .post-content {
+            flex: 1;
+        }
+
+        .post-input {
+            width: 100%;
+            padding: 10px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
+            font-size: 16px;
+            background: #d6e4ff;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
         }
 
-        .download-btn:hover {
+        .file-post-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .file-label {
+            background: cornflowerblue;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            transition: 0.3s;
+            width: 200px;
+            display: inline-block;
+        }
+
+        .file-label:hover {
             background: #4169e1;
         }
 
-        /* Back Button */
-        .back-btn {
-            display: block;
-            width: fit-content;
-            margin: 20px auto;
-            padding: 10px 15px;
-            background: #5a79c7;
+        .file-input {
+            display: none;
+        }
+
+        .post-btn {
+            background: cornflowerblue;
             color: white;
+            padding: 10px;
+            border: none;
             border-radius: 5px;
-            text-align: center;
             cursor: pointer;
             font-size: 16px;
-            transition: all 0.3s ease-in-out;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-in-out 0.9s forwards;
+            transition: 0.3s;
+            display: inline-block;
         }
 
-        .back-btn:hover {
-            background: #355a9a;
-            transform: scale(1.05);
+        .post-btn:hover {
+            background: #4169e1;
         }
 
-        /* Responsive Styles */
         @media screen and (max-width: 768px) {
             .container {
                 width: 90%;
                 padding: 15px;
             }
-
-            .resource-item {
+            .file-post-container {
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 15px;
-            }
-
-            .download-btn {
-                margin-top: 10px;
-            }
-
-            .back-btn {
-                font-size: 14px;
-                padding: 8px 12px;
             }
         }
     </style>
-
   
 </head>
 <body >
@@ -183,10 +176,10 @@
 
                 <div class="desktop-nav">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="index.html" class="nav-link">Courses</a>
+                    <a href="index.html " hreflang=" #courses"class="nav-link">Courses</a>
                     <a href="resources.html" class="nav-link">Resources</a>
                     <a href="liveclasses.html" class="nav-link">Live Classes</a>
-                    <a href="community.html" class="nav-link">Community Hub</a>
+                    <a href="#communityhub" class="nav-link">Community Hub</a>
                     <a href="login.html" class="btn btn-outline">Sign In</a>
                     <a href="singup.html" class="btn btn-primary" style="background-color: cornflowerblue;">Sing Up</a>
                 </div>
@@ -209,46 +202,23 @@
             </div>
         </div>
     </nav>
-
-    <section class="hero">
-        <div class="resource-div">
-            <h1>Course Resources</h1>
-            <p>Download study materials and helpful resources for the course.</p>
-    
-            <h2>Resources</h2>
-            <div class="resources">
-                <div class="resource-item">
-                    <a href="resource1.pdf" download>Basic English Grammar Guide</a>
-                    <button class="download-btn">Download</button>
+        <!-- Hero Section -->
+        <section class="hero" id="communityhub">
+            <div class="community">
+                <div class="community-header">Community Hub</div>
+                <input type="text" id="postText" class="post-input" placeholder="Share your thoughts...">
+                <div class="file-post-container">
+                    <label for="mediaUpload" class="file-label">Choose File</label>
+                    <input type="file" id="mediaUpload" accept="image/*,video/*" class="file-input">
+                    <button class="post-btn" onclick="addPost()">Post</button>
                 </div>
-    
-                <div class="resource-item">
-                    <a href="resource2.pdf" download>Speaking & Pronunciation Workbook</a>
-                    <button class="download-btn">Download</button>
-                </div>
-    
-                <div class="resource-item">
-                    <a href="resource3.pdf" download>Listening Comprehension Exercises</a>
-                    <button class="download-btn">Download</button>
-                </div>
-    
-                <div class="resource-item">
-                    <a href="resource4.pdf" download>Advanced Writing Techniques</a>
-                    <button class="download-btn">Download</button>
-                </div>
+                <div class="post-container" id="posts"></div>
             </div>
+        </section>
+   
     
-            <div class="back-btn" onclick="goBack()">Back to Course</div>
-        </div>
-    
-    </section>
-
-    
- 
-
     <script>
-        // Function to toggle the visibility of the course content
-    function toggleContent(courseId) {
+        function toggleContent(courseId) {
         var courseContent = document.getElementById(courseId);
         if (courseContent.style.display === "none") {
             courseContent.style.display = "block";
@@ -299,12 +269,37 @@
         window.addEventListener('scroll', animateOnScroll);
         animateOnScroll(); // Initial check
 
-        function goBack() {
-            window.location.href = "index.html";  // Change to the actual course page
+        function addPost() {
+            const text = document.getElementById("postText").value;
+            const fileInput = document.getElementById("mediaUpload");
+            const postsContainer = document.getElementById("posts");
+
+            if (!text && !fileInput.files.length) {
+                alert("Please enter text or choose a file to post.");
+                return;
+            }
+
+            const postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+            
+            let content = `<img src="profile.jpg" class="profile-logo"> <div class="post-content"><p>${text}</p>`;
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const url = URL.createObjectURL(file);
+                if (file.type.startsWith("image")) {
+                    content += `<img src="${url}" width="200">`;
+                } else if (file.type.startsWith("video")) {
+                    content += `<video src="${url}" width="200" controls></video>`;
+                }
+            }
+            content += "</div>";
+            postDiv.innerHTML = content;
+            postsContainer.prepend(postDiv);
+
+            document.getElementById("postText").value = "";
+            fileInput.value = "";
         }
-
-
     </script>
-   
+
 </body>
 </html>

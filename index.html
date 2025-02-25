@@ -7,146 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* ============================= */
-/* General Animations */
-/* ============================= */
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Bounce-in Animation */
-@keyframes bounceIn {
-    0% {
-        transform: scale(0.9);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Slide-in from Top */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ============================= */
-/* Applying Animations (Fixed) */
-/* ============================= */
-
-/* Navbar Fade-in */
-.navbar {
-    animation: fadeIn 0.8s ease-in-out;
-}
-
-/* Hero Section Fade-in */
-.hero {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Stats Cards Bounce-in */
-.stat-card {
-    animation: bounceIn 0.8s ease-out forwards;
-}
-
-/* Course Cards Bounce-in */
-.course-card {
-    animation: bounceIn 0.8s ease-out forwards;
-}
-
-/* Staggered Delays for Natural Flow */
-.stat-card:nth-child(1) { animation-delay: 0.2s; }
-.stat-card:nth-child(2) { animation-delay: 0.4s; }
-.stat-card:nth-child(3) { animation-delay: 0.6s; }
-
-.course-card:nth-child(1) { animation-delay: 0.2s; }
-.course-card:nth-child(2) { animation-delay: 0.4s; }
-.course-card:nth-child(3) { animation-delay: 0.6s; }
-
-/* Mobile Menu Slide-in */
-.mobile-menu {
-    animation: slideIn 0.5s ease-in-out;
-}
-
-/* ============================= */
-/* Smooth Button Hover Effects */
-/* ============================= */
-.btn {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* ============================= */
-/* Smooth Scrolling */
-/* ============================= */
-html {
-    scroll-behavior: smooth;
-}
-/* ============================= */
-/* Course Card Hover Effects */
-/* ============================= */
-
-/* Initially Hide Course Content */
-.course-content {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
-}
-
-/* On Hover, Show the Content */
-.course-card:hover .course-content {
-    opacity: 1;
-    max-height: 200px; /* Adjust to fit content */
-}
-
-/* Add Smooth Scaling & Shadow on Hover */
-.course-card {
-    transition: all 0.35s ease-in-out;
-}
-
-.course-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Smooth Button Hover Effects */
-.btn {
-    transition: 0.3s ease-in-out;
-     box-shadow :0.3s ease-in-out;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-
-
-    </style>
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body >
     <!-- Navbar -->
@@ -166,26 +27,24 @@ html {
                     <a href="#courses" class="nav-link">Courses</a>
                     <a href="resources.html" class="nav-link">Resources</a>
                     <a href="liveclasses.html" class="nav-link">Live Classes</a>
-                    <a href="" class="nav-link">Profile</a>
+                    <a href="community.html" class="nav-link">Community Hub</a>
                     <a href="login.html" class="btn btn-outline">Sign In</a>
                     <a href="singup.html" class="btn btn-primary" style="background-color: cornflowerblue;">Sign Up</a>
                 </div>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"/>
-                    </svg>
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
 
             <!-- Mobile Menu -->
-            <div class="mobile-menu hidden" id="mobileMenu">
+            <div class="mobile-menu hidden" id="mobileMenu" >
                 <a href="#hero" class="mobile-link">Home</a>
                 <a href="#courses" class="mobile-link">Courses</a>
                 <a href="resources.html" class="mobile-link">Resources</a>
                 <a href="liveclasses.html" class="mobile-link">Live Classes</a>
                 <a href="login.html" class="btn btn-outline w-full">Sign In</a>
-                <a href="singup.html" class="btn btn-primary w-full">Get Started</a>
+                <a href="singup.html" class="btn btn-primary w-full">Sign Up</a>
             </div>
         </div>
     </nav>
@@ -212,7 +71,7 @@ html {
                     <svg class="h-8 w-8 mx-auto text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="height: 80px;">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                     </svg>
-                    <h3>1000+</h3>
+                    <h3>1000</h3>
                     <p>Free Courses</p>
                 </div>
                 <div class="stat-card">
@@ -301,12 +160,126 @@ html {
                     </p>
                 </div>
             </div>
+
+            <div class="course-card">
+                <div class="course-image3" href="english.html"></div>
+                <h3><a href="english.html" style="text-decoration: none; color: #000;">English Language</a></h3>
+                <p><a href="english.html" style="text-decoration: none; color: rgb(211, 206, 206);">Develop essential English communication skills</a></p>
+                <div class="course-footer">
+                    <span>3,210 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course4')">Learn More</a>
+                </div>
+                <div id="course4" class="course-content" style="display: none;">
+                    <p>This course helps you improve your speaking, writing, and listening skills in English, with a focus on everyday communication.  
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Grammar Essentials</li>
+                        <li>Speaking and Listening Practice</li>
+                        <li>Writing Skills Development</li>
+                    </ul>
+                    </p>
+                </div>
+            </div> 
+            
+            <div class="course-card">
+                <div class="course-image3" href="english.html"></div>
+                <h3><a href="english.html" style="text-decoration: none; color: #000;">English Language</a></h3>
+                <p><a href="english.html" style="text-decoration: none; color: rgb(211, 206, 206);">Develop essential English communication skills</a></p>
+                <div class="course-footer">
+                    <span>3,210 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course5')">Learn More</a>
+                </div>
+                <div id="course5" class="course-content" style="display: none;">
+                    <p>This course helps you improve your speaking, writing, and listening skills in English, with a focus on everyday communication.  
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Grammar Essentials</li>
+                        <li>Speaking and Listening Practice</li>
+                        <li>Writing Skills Development</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image3" href="english.html"></div>
+                <h3><a href="english.html" style="text-decoration: none; color: #000;">English Language</a></h3>
+                <p><a href="english.html" style="text-decoration: none; color: rgb(211, 206, 206);">Develop essential English communication skills</a></p>
+                <div class="course-footer">
+                    <span>3,210 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course6')">Learn More</a>
+                </div>
+                <div id="course6" class="course-content" style="display: none;">
+                    <p>This course helps you improve your speaking, writing, and listening skills in English, with a focus on everyday communication.  
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Grammar Essentials</li>
+                        <li>Speaking and Listening Practice</li>
+                        <li>Writing Skills Development</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image3" href="english.html"></div>
+                <h3><a href="english.html" style="text-decoration: none; color: #000;">English Language</a></h3>
+                <p><a href="english.html" style="text-decoration: none; color: rgb(211, 206, 206);">Develop essential English communication skills</a></p>
+                <div class="course-footer">
+                    <span>3,210 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course7')">Learn More</a>
+                </div>
+                <div id="course7" class="course-content" style="display: none;">
+                    <p>This course helps you improve your speaking, writing, and listening skills in English, with a focus on everyday communication.  
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Grammar Essentials</li>
+                        <li>Speaking and Listening Practice</li>
+                        <li>Writing Skills Development</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image3" href="english.html"></div>
+                <h3><a href="english.html" style="text-decoration: none; color: #000;">English Language</a></h3>
+                <p><a href="english.html" style="text-decoration: none; color: rgb(211, 206, 206);">Develop essential English communication skills</a></p>
+                <div class="course-footer">
+                    <span>3,210 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course8')">Learn More</a>
+                </div>
+                <div id="course8" class="course-content" style="display: none;">
+                    <p>This course helps you improve your speaking, writing, and listening skills in English, with a focus on everyday communication.  
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Grammar Essentials</li>
+                        <li>Speaking and Listening Practice</li>
+                        <li>Writing Skills Development</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image3" href="english.html"></div>
+                <h3><a href="english.html" style="text-decoration: none; color: #000;">English Language</a></h3>
+                <p><a href="english.html" style="text-decoration: none; color: rgb(211, 206, 206);">Develop essential English communication skills</a></p>
+                <div class="course-footer">
+                    <span>3,210 students</span>
+                    <a href="javascript:void(0);" class="text-primary" onclick="toggleContent('course9')">Learn More</a>
+                </div>
+                <div id="course9" class="course-content" style="display: none;">
+                    <p>This course helps you improve your speaking, writing, and listening skills in English, with a focus on everyday communication.  
+                    <ul style="padding-left: 25px; list-style: none;padding-top: 7px;padding-bottom: 7px;">
+                        <li>Grammar Essentials</li>
+                        <li>Speaking and Listening Practice</li>
+                        <li>Writing Skills Development</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<script>
-    // Function to toggle the visibility of the course content
+    <script>
+        // Function to toggle the visibility of the course content
     function toggleContent(courseId) {
         var courseContent = document.getElementById(courseId);
         if (courseContent.style.display === "none") {
@@ -315,10 +288,6 @@ html {
             courseContent.style.display = "none";
         }
     }
-</script>
-
-
-    <script>
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -362,6 +331,6 @@ html {
         window.addEventListener('scroll', animateOnScroll);
         animateOnScroll(); // Initial check
     </script>
-   
+
 </body>
 </html>

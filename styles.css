@@ -355,3 +355,134 @@ body {
         padding: 0 2rem;
     }
 }
+        /* ============================= */
+/* General Animations */
+/* ============================= */
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce-in Animation */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Slide-in from Top */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================= */
+/* Applying Animations (Fixed) */
+/* ============================= */
+
+/* Navbar Fade-in */
+.navbar {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Hero Section Fade-in */
+.hero {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Stats Cards Bounce-in */
+.stat-card {
+    animation: bounceIn 0.8s ease-out forwards;
+}
+
+/* Course Cards Bounce-in */
+.course-card {
+    animation: bounceIn 0.8s ease-out forwards;
+}
+
+/* Staggered Delays for Natural Flow */
+.stat-card:nth-child(1) { animation-delay: 0.2s; }
+.stat-card:nth-child(2) { animation-delay: 0.4s; }
+.stat-card:nth-child(3) { animation-delay: 0.6s; }
+
+.course-card:nth-child(1) { animation-delay: 0.2s; }
+.course-card:nth-child(2) { animation-delay: 0.4s; }
+.course-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Mobile Menu Slide-in */
+.mobile-menu {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* ============================= */
+/* Smooth Button Hover Effects */
+/* ============================= */
+.btn {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+
+/* ============================= */
+/* Course Card Hover Effects */
+/* ============================= */
+
+/* Initially Hide Course Content */
+.course-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+/* On Hover, Show the Content */
+.course-card:hover .course-content {
+    opacity: 1;
+    max-height: 200px; /* Adjust to fit content */
+}
+
+/* Add Smooth Scaling & Shadow on Hover */
+.course-card {
+    transition: all 0.35s ease-in-out;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth Button Hover Effects */
+.btn {
+    transition: 0.3s ease-in-out;
+     box-shadow :0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
